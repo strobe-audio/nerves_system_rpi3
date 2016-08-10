@@ -6,6 +6,9 @@
 # Device tree options are documented at
 # https://github.com/raspberrypi/documentation/blob/master/configuration/device-tree.md
 
+# Include extra debugging info visible with `vcdbg log msg`
+dtdebug=1
+
 kernel=zImage
 
 # This, along with the Raspberry Pi "x" firmware is need for the camera
@@ -13,12 +16,24 @@ kernel=zImage
 gpu_mem=128
 
 # Enable I2C and SPI
-dtparam=i2c_arm=on,spi=on
+dtparam=spi=on
+dtparam=i2s=on
+dtparam=i2c_arm=on
 
 # Comment this in or modify to enable OneWire
 # NOTE: check that the overlay that you specify is in the boot partition or
 #       this won't work.
-#dtoverlay=w1-gpio-pullup,gpiopin=4
+#device_tree_overlay=overlays/w1-gpio-pullup-overlay.dtb,gpiopin=4
 
 # Enable the UART (/dev/ttyS0) on the RPi3.
 enable_uart=1
+
+device_tree_overlay=overlays/iqaudio-dacplus-overlay.dtb
+#device_tree_overlay=overlays/iqaudio-dac-overlay.dtb
+#device_tree_overlay=overlays/hifiberry-dac-overlay.dtb
+#device_tree_overlay=overlays/hifiberry-dacplus-overlay.dtb
+#device_tree_overlay=overlays/hifiberry-amp-overlay.dtb
+#device_tree_overlay=overlays/hifiberry-digi-overlay.dtb
+#device_tree_overlay=overlays/raspidac3-overlay.dtb
+#device_tree_overlay=overlays/rpi-dac-overlay.dtb
+
