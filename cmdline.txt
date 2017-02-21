@@ -1,1 +1,1 @@
-isolcpus=3 console=tty1 console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait
+isolcpus=3 dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0 dwc_otg.fiq_fsm_mask=0x3 dwc_otg.nak_holdoff=0 dwc_otg.lpm_enable=0 dwc_otg.speed=1 console=tty1 console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait
